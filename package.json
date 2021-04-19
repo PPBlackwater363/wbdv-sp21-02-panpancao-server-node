@@ -17,5 +17,8 @@
   },
   "devDependencies": {
     "cookie-parser": "^1.4.5"
+  },
+  "engines": {
+    "node": "12.13.0"
   }
 }
