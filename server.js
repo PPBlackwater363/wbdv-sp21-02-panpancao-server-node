@@ -44,4 +44,9 @@ require('./controller/quizzes-controller')(app)
 require('./controller/questions-controller')(app)
 require('./controller/quiz-attempts-controller')(app)
 
+
+app.get('/', (req, res) => {
+    res.sendFile(__dirname + '/' + 'api.server.html')
+});
+
 app.listen(process.env.PORT || 3000);
