@@ -1,29 +1,50 @@
-const questions = require('./questions.json')
+// const questions = require('./questions.json')
+//
+// const questionsModel = require('../../models/questions/questions-model')
+//
+// const createQuestion = () => {}
+//
+// const findAllQuestions = () => {
+//     // return questions;
+//     return questionsModel.find()
+// }
+//
+// const findQuestionById = (quid) => {
+//     // return questions.find(question => question._id === quid);
+//     return questionsModel.findById(quid)
+// }
+// const updateQuestion = () => {}
+// const deleteQuestion = () => {}
+//
+// const createQuestionForQuiz = () => {}
+//
+// const findQuestionsForQuiz = (quizId) => {
+//     return questionsModel.find({quizId: quizId})
+//     // return questions.filter(question => question.quizId === quizId);
+// }
+//
+// module.exports = {
+//     findQuestionsForQuiz,
+//     createQuestion,
+//     findAllQuestions,
+//     findQuestionById,
+//     updateQuestion,
+//     deleteQuestion,
+//     createQuestionForQuiz
+// }
 
-const createQuestion = () => {}
+const questionsDao = require('../../daos/questions-dao')
 
-const findAllQuestions = () => {
-    return questions;
-}
+const findAllQuestions = () =>
+    questionsDao.findAllQuestions()
 
-const findQuestionById = (quid) => {
-    return questions.find(question => question._id === quid);
-}
-const updateQuestion = () => {}
-const deleteQuestion = () => {}
+const findQuestionById = (qid) =>
+    questionsDao.findQuestionById(qid)
 
-const createQuestionForQuiz = () => {}
+const findQuestionsForQuiz = (qid) =>
+    questionsDao.findQuestionsForQuiz(qid)
 
-const findQuestionsForQuiz = (quizId) => {
-    return questions.filter(question => question.quizId === quizId);
-}
+const createQuestion = (question) =>
+    questionsDao.createQuestion(question)
 
-module.exports = {
-    findQuestionsForQuiz,
-    createQuestion,
-    findAllQuestions,
-    findQuestionById,
-    updateQuestion,
-    deleteQuestion,
-    createQuestionForQuiz
-}
+module.exports = {findAllQuestions, findQuestionById, findQuestionsForQuiz, createQuestion}
